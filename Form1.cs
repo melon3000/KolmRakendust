@@ -66,10 +66,6 @@ namespace PildiYlesanne
         System.Windows.Forms.Timer timer1;
         int timeLeft;
 
-        // --- Quiz Scores / Records ---
-        int quizScore = 0;
-        string resultsFile = "results.txt";
-
         public Form1()
         {
             this.Text = "Pildi Ülesanne TreeView versioon";
@@ -128,8 +124,6 @@ namespace PildiYlesanne
             pictureBox.BorderStyle = BorderStyle.Fixed3D;
             pictureBox.SizeMode = PictureBoxSizeMode.Normal;
 
-            EnablePictureDrag();
-
             flowPanel = new FlowLayoutPanel();
             flowPanel.Dock = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.RightToLeft;
@@ -161,21 +155,6 @@ namespace PildiYlesanne
             imageLayout.Controls.Add(flowPanel, 0, 1);
         }
 
-        private void EnablePictureDrag()
-        {
-            pictureBox.MouseDown += (s, e) =>
-            {
-                if (e.Button == MouseButtons.Left) mouseDownLocation = e.Location;
-            };
-            pictureBox.MouseMove += (s, e) =>
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    pictureBox.Left = e.X + pictureBox.Left - mouseDownLocation.X;
-                    pictureBox.Top = e.Y + pictureBox.Top - mouseDownLocation.Y;
-                }
-            };
-        }
 
         private void ShowImage_Click(object sender, EventArgs e)
         {
@@ -261,12 +240,6 @@ namespace PildiYlesanne
             }
         }
 
-        private void ZoomImage(float factor)
-        {
-            if (pictureBox.Image == null) return;
-            pictureBox.Width = (int)(pictureBox.Width * factor);
-            pictureBox.Height = (int)(pictureBox.Height * factor);
-        }
 
         // --------------------- Matemaatiline Quiz ---------------------
         private void CreateMathQuizPanel()
