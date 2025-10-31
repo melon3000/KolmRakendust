@@ -5,7 +5,6 @@ See on C# Windows Forms rakendus graafilise liidesega, mis sisaldab kolme põhim
 
 1. **Pildiülesanne (Pildivaatur)**  
    - Kuvab pilte (`.jpg`, `.png`, `.bmp`).  
-   - Pildi saab hiirega lohistada.  
    - Nupud: näita, kustuta, muuda taustavärvi, sulge rakendus.  
    - Lisafunktsioonid:  
      - Pildi venitus sisse/ välja lülitamine.  
